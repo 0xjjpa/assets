@@ -12,4 +12,7 @@ syncArticleAssets:
 syncMainAssets:
 	PROJECT=index.jjperezaguinaga.com URL=index VERSION=v1 make uploadAssets
 
+downloadAll:
+	aws s3 cp s3://$(BUCKET) . --recursive
+
 sync: syncArticleAssets syncMainAssets
