@@ -36,6 +36,10 @@ stop:
 rm:
 	$(DOCKER) rm assets
 
+ls:
+	#Assumes aws-cli, AWS_ACCESS_KEY + AWS_SECRET_KEY
+	aws s3 ls
+
 uploadAssets:
 	#Assumes aws-cli, AWS_ACCESS_KEY + AWS_SECRET_KEY
 	aws s3 sync $(PROJECT) s3://$(BUCKET)/$(URL)/$(VERSION)/ --acl public-read --delete
