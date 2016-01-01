@@ -42,7 +42,7 @@ ls:
 
 uploadAssets:
 	#Assumes aws-cli, AWS_ACCESS_KEY + AWS_SECRET_KEY
-	aws s3 sync $(PROJECT) s3://$(BUCKET)/$(URL)/$(VERSION)/ --acl public-read --delete
+	aws s3 sync $(PROJECT) s3://$(BUCKET)/$(URL)/$(VERSION)/ --acl public-read --delete --region eu-central-1
 
 syncArticleAssets:
 	PROJECT=articles.jjperezaguinaga.com URL=articles VERSION=v1 make uploadAssets
